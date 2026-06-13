@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital HSS — Installer Return Codes</title>
+<meta name="description" content="Exit / return code reference for the Digital HSS Windows installer (Inno Setup), for Microsoft Store EXE installer handling.">
+<style>
+  :root {
+    --navy: #0d2a4a;
+    --blue: #1565c0;
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --ink: #1c2733;
+    --muted: #5b6b7b;
+    --line: #e2e8f0;
+    --ok: #1b8f5a;
+    --warn: #b9770e;
+    --err: #c0392b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  header {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: #fff;
+    padding: 36px 20px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+  header .wrap { padding: 0; }
+  h1 { margin: 0 0 6px; font-size: 1.6rem; }
+  header p { margin: 0; opacity: .9; font-size: .95rem; }
+  main { padding: 28px 0 56px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin: 0 0 20px;
+  }
+  h2 { font-size: 1.1rem; margin: 0 0 12px; color: var(--navy); }
+  p.lead { color: var(--muted); margin-top: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: .94rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: #f0f4f9; color: var(--navy); font-weight: 600; }
+  td.code { font-family: "Consolas", "SF Mono", Menlo, monospace; font-weight: 700; text-align: center; width: 64px; }
+  tr:last-child td { border-bottom: none; }
+  .tag { display: inline-block; font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+  .tag.ok  { background: #e6f6ee; color: var(--ok); }
+  .tag.cancel { background: #eef1f5; color: var(--muted); }
+  .tag.err { background: #fbeae8; color: var(--err); }
+  .tag.reboot { background: #fdf3e3; color: var(--warn); }
+  code { background: #eef1f5; padding: 2px 6px; border-radius: 5px; font-family: "Consolas", monospace; font-size: .9em; }
+  .silent { background: var(--navy); color: #cfe0f5; padding: 12px 14px; border-radius: 8px; font-family: "Consolas", monospace; font-size: .9rem; overflow-x: auto; }
+  footer { color: var(--muted); font-size: .85rem; text-align: center; padding: 24px 20px 40px; }
+  a { color: var(--blue); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Digital HSS — Installer Return Codes</h1>
+    <p>Exit-code reference for the Digital HSS for Windows installer · Haraiya Secondary School</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="card">
+    <p class="lead">
+      The Digital HSS desktop installer is built with <strong>Inno Setup</strong>. When run, it
+      returns one of the exit codes below. This page is the documentation reference for the
+      Microsoft Store submission&rsquo;s <em>Installer handling</em> field, and for administrators
+      deploying the app silently.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Exit codes</h2>
+    <table>
+      <thead>
+        <tr><th>Code</th><th>Meaning</th><th>Outcome</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="code">0</td><td>Setup completed successfully.</td><td><span class="tag ok">Success</span></td></tr>
+        <tr><td class="code">1</td><td>Setup failed to initialize (e.g. it could not start).</td><td><span class="tag err">Install error</span></td></tr>
+        <tr><td class="code">2</td><td>The user clicked <strong>Cancel</strong> in the wizard before installation began.</td><td><span class="tag cancel">Cancelled by user</span></td></tr>
+        <tr><td class="code">3</td><td>A fatal error occurred while preparing the next installation phase. Rare (e.g. out of memory/resources).</td><td><span class="tag err">Install error</span></td></tr>
+        <tr><td class="code">4</td><td>A fatal error occurred during the actual installation process.</td><td><span class="tag err">Install error</span></td></tr>
+        <tr><td class="code">5</td><td>The user clicked <strong>Cancel</strong> during installation, or chose <strong>Abort</strong> at an Abort-Retry-Ignore prompt.</td><td><span class="tag cancel">Cancelled by user</span></td></tr>
+        <tr><td class="code">6</td><td>Setup was forcefully terminated by the debugger. Not applicable to released builds.</td><td><span class="tag err">Install error</span></td></tr>
+        <tr><td class="code">7</td><td>The &ldquo;Preparing to Install&rdquo; stage determined Setup cannot proceed; Setup exited.</td><td><span class="tag err">Install error</span></td></tr>
+        <tr><td class="code">8</td><td>The &ldquo;Preparing to Install&rdquo; stage determined Setup cannot proceed and the system must be restarted first.</td><td><span class="tag reboot">Reboot required</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Silent (unattended) installation</h2>
+    <p class="lead">The installer supports a fully silent install with no UI, used by the Microsoft Store and for managed deployment:</p>
+    <div class="silent">DigitalHSS-Setup-&lt;version&gt;.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /CURRENTUSER</div>
+    <p class="lead" style="margin-bottom:0">
+      Silent uninstall: <code>"%LOCALAPPDATA%\Programs\Digital HSS\unins000.exe" /VERYSILENT /NORESTART</code>
+    </p>
+  </div>
+</main>
+
+<footer>
+  Digital HSS · Haraiya Secondary School, Kanchan-3, Rupandehi ·
+  <a href="https://play.google.com/store/apps/details?id=com.bikash.digitalhss">Android app</a>
+</footer>
+</body>
+</html>
