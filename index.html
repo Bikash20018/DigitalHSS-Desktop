@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital HSS — Download for Windows</title>
+<meta name="description" content="Digital HSS — the school management desktop app for Haraiya Secondary School. Free download for Windows 10 and 11." />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  :root{
+    --navy:#0e3a6b; --navy-2:#1565c0; --accent:#ffc107;
+    --ink:#13233a; --muted:#5b6b82; --bg:#f5f8fc; --card:#ffffff;
+    --ring:rgba(21,101,192,.18); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.55;
+  }
+  a{color:var(--navy-2);text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  /* Header */
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+    color:#fff;padding:14px 0;position:sticky;top:0;z-index:10;
+    box-shadow:0 2px 18px rgba(14,58,107,.25);
+  }
+  .nav{display:flex;align-items:center;gap:14px}
+  .nav img{width:40px;height:40px;border-radius:9px;background:#fff;padding:3px}
+  .brand{font-weight:700;font-size:1.15rem;letter-spacing:.2px}
+  .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.85}
+  .nav .spacer{flex:1}
+  .nav a{color:#fff;opacity:.9;font-size:.9rem;margin-left:18px}
+  .nav a:hover{opacity:1}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+    color:#fff;padding:56px 0 70px;text-align:center;
+  }
+  .hero h1{font-size:2.5rem;margin:.2em 0 .15em;line-height:1.15}
+  .hero p.tag{font-size:1.15rem;opacity:.92;max-width:620px;margin:0 auto 30px}
+  .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+  .badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+    padding:6px 14px;border-radius:999px;font-size:.85rem}
+
+  .dlbtn{
+    display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--navy);
+    font-weight:700;font-size:1.15rem;padding:16px 30px;border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .dlbtn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+  .dlbtn svg{width:26px;height:26px}
+  .dlmeta{margin-top:14px;font-size:.86rem;opacity:.85}
+
+  /* Sections */
+  section{padding:54px 0}
+  h2{font-size:1.6rem;margin:0 0 6px;text-align:center}
+  .sub{color:var(--muted);text-align:center;margin:0 auto 34px;max-width:640px}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .step{background:var(--card);border:1px solid #e7eef7;border-radius:var(--radius);
+    padding:24px;box-shadow:0 4px 16px rgba(20,40,80,.05)}
+  .step .n{width:36px;height:36px;border-radius:50%;background:var(--navy-2);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:12px}
+  .step h3{margin:.2em 0 .35em;font-size:1.05rem}
+  .step p{margin:0;color:var(--muted);font-size:.94rem}
+
+  /* SmartScreen note */
+  .note{background:#fff8e1;border:1px solid #ffe082;border-radius:var(--radius);
+    padding:18px 22px;margin-top:26px;font-size:.94rem;color:#6b5300}
+  .note b{color:#5a4500}
+
+  /* Shots */
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .shots img{width:100%;border-radius:12px;border:1px solid #e2e9f2;
+    box-shadow:0 6px 20px rgba(20,40,80,.10);background:#fff}
+
+  /* Features */
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:760px;margin:0 auto}
+  .feat li{list-style:none;background:var(--card);border:1px solid #e7eef7;border-radius:12px;
+    padding:14px 18px;display:flex;gap:12px;align-items:flex-start;font-size:.96rem}
+  .feat .dot{color:var(--navy-2);font-weight:700}
+  ul.feat{padding:0;margin:0}
+
+  /* Footer */
+  footer{background:var(--ink);color:#cfd9e6;padding:34px 0;text-align:center;font-size:.9rem}
+  footer .brand2{color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:6px}
+  footer a{color:#9ec5ff}
+
+  @media (max-width:760px){
+    .hero h1{font-size:1.9rem}
+    .steps,.shots,.feat{grid-template-columns:1fr}
+    .nav a{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <img src="assets/logo.png" alt="Digital HSS logo" />
+    <div class="brand">Digital HSS<small>Haraiya Secondary School</small></div>
+    <span class="spacer"></span>
+    <a href="#install">How to install</a>
+    <a href="#screens">Screenshots</a>
+    <a href="#download">Download</a>
+  </div>
+</header>
+
+<section class="hero" id="download">
+  <div class="wrap">
+    <h1>Digital HSS for Windows</h1>
+    <p class="tag">School management for students and teachers — notices, results, marks entry,
+       report cards, books and more, right on your computer.</p>
+    <div class="badges">
+      <span class="badge">Windows 10 &amp; 11</span>
+      <span class="badge">64-bit</span>
+      <span class="badge">Free</span>
+      <span class="badge">Version 4.16.1</span>
+    </div>
+    <a class="dlbtn" href="downloads/DigitalHSS-Setup-4.16.1.exe" download>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1Zm-7 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+      Download for Windows
+    </a>
+    <div class="dlmeta">DigitalHSS-Setup-4.16.1.exe · about 64 MB · installs in a few seconds</div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>How to install</h2>
+    <p class="sub">No technical knowledge needed — three simple steps.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Download</h3>
+        <p>Click the <b>Download for Windows</b> button above and save the file.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Run the installer</h3>
+        <p>Open <b>DigitalHSS-Setup-4.16.1.exe</b> from your Downloads folder and follow the wizard.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Open the app</h3>
+        <p>Launch <b>Digital HSS</b> from the Start menu or desktop shortcut and sign in.</p>
+      </div>
+    </div>
+    <div class="note">
+      <b>If Windows shows a blue “Windows protected your PC” box:</b> this is normal for a school
+      app that is not yet in the Microsoft Store. Click <b>More info</b>, then <b>Run anyway</b> to continue.
+    </div>
+  </div>
+</section>
+
+<section id="screens" style="background:#eef4fb">
+  <div class="wrap">
+    <h2>A look inside</h2>
+    <p class="sub">The same Digital HSS you know — built for the bigger screen.</p>
+    <div class="shots">
+      <img src="assets/screen-login.png" alt="Login screen" loading="lazy" />
+      <img src="assets/screen-students.png" alt="Manage students" loading="lazy" />
+      <img src="assets/screen-marks.png" alt="Enter marks" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What you can do</h2>
+    <p class="sub">For students and teachers of Haraiya Secondary School.</p>
+    <ul class="feat">
+      <li><span class="dot">✓</span> View notices, results and academic calendar</li>
+      <li><span class="dot">✓</span> Enter marks and generate report cards</li>
+      <li><span class="dot">✓</span> Manage students, subjects and classes</li>
+      <li><span class="dot">✓</span> Read books, notes and PDF materials</li>
+      <li><span class="dot">✓</span> Secure sign-in for students and teachers</li>
+      <li><span class="dot">✓</span> Works offline-friendly on any Windows PC</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand2">Digital HSS</div>
+    <div>Haraiya Secondary School · Kanchan-3, Rupandehi · Estd. 2024 B.S.</div>
+    <div style="margin-top:10px">
+      Version 4.16.1 ·
+      <a href="downloads/DigitalHSS-Setup-4.16.1.exe" download>Download installer</a> ·
+      <a href="installer-return-codes.html">Installer notes</a>
+    </div>
+    <div style="margin-top:10px;opacity:.7">Also available on
+      <a href="https://play.google.com/store/apps/details?id=com.bikash.digitalhss">Google Play (Android)</a>.</div>
+  </div>
+</footer>
+
+</body>
+</html>
